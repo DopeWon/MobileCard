@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1070354434158",
+    "firebase_url": "https://mobilecard-6f803.firebaseio.com",
+    "project_id": "mobilecard-6f803",
+    "storage_bucket": "mobilecard-6f803.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070354434158:android:39b666fff0a46790",
+        "android_client_info": {
+          "package_name": "com.example.jteam.mobilecard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070354434158-u3ksmjck9v5h1cbj4fuhdoeulmonvcnv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALrWbFoisF8BHLtejgZkMWhco_eA7vleA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
