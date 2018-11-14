@@ -21,6 +21,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="9dp"
         android:hint="ID" />
+    <EditText
+        android:id="@+id/IDInput"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/logoImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:hint="ID" />
 
     <EditText
         android:layout_width="300dp"
