@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
         android:src="@drawable/sunmoonlogo" />
 
     <EditText
@@ -19,24 +18,23 @@
         android:layout_height="50dp"
         android:layout_below="@+id/logoImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="9dp"
-        android:hint="ID" />
-    <EditText
-        android:id="@+id/IDInput"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/logoImage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="9dp"
+        android:maxLines="1"
+        android:inputType="text"
+        android:maxLength="100"
+        android:layout_marginTop="22dp"
         android:hint="ID" />
 
     <EditText
+        android:id="@+id/passwordInput"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:id="@+id/passwordInput"
+        android:layout_below="@+id/IDInput"
         android:layout_centerHorizontal="true"
-        android:hint="Password"
-        android:layout_below="@+id/IDInput" />
+        android:maxLines="1"
+        android:inputType="textPassword"
+        android:maxLength="100"
+        android:layout_marginTop="11dp"
+        android:hint="Password" />
 
     <Button
         android:id="@+id/loginButton"
@@ -44,7 +42,7 @@
         android:layout_height="55dp"
         android:layout_below="@+id/passwordInput"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="24dp"
         android:text="Log in"
         android:textAllCaps="false" />
 
@@ -54,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="15dp"
         android:text="Remember login" />
 
     <TextView
@@ -63,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/checkBox"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="5dp"
         android:autoLink="web"
         android:linksClickable="true"
         android:text="lily.sunmoon.ac.kr" />
