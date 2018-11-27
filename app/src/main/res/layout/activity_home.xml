@@ -29,6 +29,7 @@
 
                 <ImageView
                     android:id="@+id/book_image"
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:layout_weight="1"
@@ -39,6 +40,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="#FF5E00"
                     android:gravity="center"
                     android:text="도서 대출 내역" />
             </LinearLayout>
@@ -62,10 +64,10 @@
                     android:id="@+id/dvd_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="#FF5E00"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="TextView"
-                    tools:text="DVD이용 내역" />
+                    android:text="DVD이용 내역" />
             </LinearLayout>
 
         </LinearLayout>
