@@ -10,11 +10,14 @@ import android.view.ViewGroup;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private BackPressCloseHandler backPressCloseHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         hideActionBar();
+        backPressCloseHandler = new BackPressCloseHandler(this);
 
         ViewGroup book_click = (ViewGroup) findViewById(R.id.book_click);
         ViewGroup dvd_click = (ViewGroup) findViewById(R.id.dvd_click);
@@ -53,6 +56,11 @@ public class HomeActivity extends AppCompatActivity {
 
 
     }
+    @Override public void onBackPressed() {
+        //super.onBackPressed();
+        backPressCloseHandler.onBackPressed();
+    }
+
 
     private void hideActionBar() {
         ActionBar actionBar = getSupportActionBar();
