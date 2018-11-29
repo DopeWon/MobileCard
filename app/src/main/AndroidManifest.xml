@@ -21,7 +21,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".BookActivity" />
         <activity android:name=".DvdActivity"  />
-        <activity android:name=".CalendarActivity">
+        <activity android:name=".CalendarActivity"/>
+        <activity android:name=".InoutActivity">
         </activity>
     </application>
 

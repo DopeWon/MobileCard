@@ -12,7 +12,7 @@
         android:layout_width="fill_parent"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
-        android:layout_height="520dp"
+        android:layout_height="match_parent"
         app:compactCalendarTargetHeight="500dp"
         app:compactCalendarTextSize="15sp"
         app:compactCalendarBackgroundColor="#d81b60"
