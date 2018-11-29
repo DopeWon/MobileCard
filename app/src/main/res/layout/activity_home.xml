@@ -81,7 +81,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/home_click"
+                android:id="@+id/dorm_click"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -89,16 +89,18 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/home_image"
+                    android:id="@+id/dorm_image"
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/home_ikon" />
+                    app:srcCompat="@drawable/dorm_ikon" />
 
                 <TextView
-                    android:id="@+id/home_text"
+                    android:id="@+id/dorm_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="#FF5E00"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="기숙사 및 강의실 출입 내역" />
@@ -114,6 +116,7 @@
 
                 <ImageView
                     android:id="@+id/food_image"
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:layout_weight="1"
@@ -123,6 +126,7 @@
                     android:id="@+id/food_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="#FF5E00"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="식당 이용 현황" />

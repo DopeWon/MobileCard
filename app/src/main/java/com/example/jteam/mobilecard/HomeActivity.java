@@ -18,7 +18,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ViewGroup book_click = (ViewGroup) findViewById(R.id.book_click);
         ViewGroup dvd_click = (ViewGroup) findViewById(R.id.dvd_click);
-        ViewGroup home_click = (ViewGroup) findViewById(R.id.home_click);
+        ViewGroup dorm_click = (ViewGroup) findViewById(R.id.dorm_click);
 
 
         book_click.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        home_click.setOnClickListener(new View.OnClickListener() {
+        dorm_click.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
