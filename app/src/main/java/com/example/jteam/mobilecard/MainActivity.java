@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                                if (child.next().getKey().equals(IDInput.getText().toString())) {
 
                                    idcheck = true;
-                                   pwDatabaseReference = FirebaseDatabase.getInstance().getReference("userID").child("wonwoo").child("password");
+                                   pwDatabaseReference = FirebaseDatabase.getInstance().getReference("userID").child(IDInput.getText().toString()).child("password");
                                    pwDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                        @Override
                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
