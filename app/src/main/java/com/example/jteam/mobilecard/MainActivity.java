@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         backPressCloseHandler = new BackPressCloseHandler(this);
-        hideActionBar();
-
         idDatabaseReference = FirebaseDatabase.getInstance().getReference("userID");
 
         SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
@@ -92,14 +90,16 @@ public class MainActivity extends AppCompatActivity {
 
                                            if (receivePW.equals(passwordInput.getText().toString())) {
                                                pwcheck = true;
+                                               SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+                                               SharedPreferences.Editor autoLogin = auto.edit();
+                                               autoLogin.putString("idinput", IDInput.getText().toString());
                                                if(checkBox.isChecked()) {
-                                                   SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-                                                   SharedPreferences.Editor autoLogin = auto.edit();
-                                                   autoLogin.putString("idinput", IDInput.getText().toString());
+
                                                    autoLogin.putString("pwinput", passwordInput.getText().toString());
                                                    autoLogin.putBoolean("check", checkBox.isChecked());
-                                                   autoLogin.commit();
+
                                                }
+                                               autoLogin.commit();
                                                Toast.makeText(getApplicationContext(), "로그인 성공!", Toast.LENGTH_LONG).show();
                                                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                                                startActivity(intent);
@@ -143,11 +143,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void hideActionBar() {
-        ActionBar actionBar = getSupportActionBar();
 
-        if(actionBar != null){
-            actionBar.hide();
-        }
-    }
 }

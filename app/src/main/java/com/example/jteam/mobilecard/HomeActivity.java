@@ -4,17 +4,30 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.wifi.p2p.WifiP2pManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Iterator;
 
 public class HomeActivity extends AppCompatActivity {
 
     private BackPressCloseHandler backPressCloseHandler;
+    String autoID;
+    private DatabaseReference userDatabaseReference;
+    TextView name, college, major, stunum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +35,36 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         //hideActionBar();
         backPressCloseHandler = new BackPressCloseHandler(this);
+
+
+        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+        autoID = auto.getString("idinput", null);
+
+        userDatabaseReference = FirebaseDatabase.getInstance().getReference("userID").child(autoID);
+        userDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                name = (TextView)findViewById(R.id.name);
+                name.setText((CharSequence) dataSnapshot.child("name").getValue());
+
+                college = (TextView)findViewById(R.id.college);
+                college.setText((CharSequence) dataSnapshot.child("college").getValue());
+
+                major = (TextView)findViewById(R.id.major);
+                major.setText((CharSequence) dataSnapshot.child("major").getValue());
+
+                stunum = (TextView)findViewById(R.id.stunum);
+                stunum.setText((CharSequence) dataSnapshot.child("stuNum").getValue());
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         ViewGroup book_click = (ViewGroup) findViewById(R.id.book_click);
         ViewGroup dvd_click = (ViewGroup) findViewById(R.id.dvd_click);
