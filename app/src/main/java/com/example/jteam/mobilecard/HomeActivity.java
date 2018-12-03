@@ -3,6 +3,9 @@ package com.example.jteam.mobilecard;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +24,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.util.Iterator;
 
 public class HomeActivity extends AppCompatActivity {
@@ -28,6 +38,8 @@ public class HomeActivity extends AppCompatActivity {
     String autoID;
     private DatabaseReference userDatabaseReference;
     TextView name, college, major, stunum;
+    ImageView picture;
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         userDatabaseReference = FirebaseDatabase.getInstance().getReference("userID").child(autoID);
         userDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
 
 
                 name = (TextView)findViewById(R.id.name);
@@ -57,6 +69,37 @@ public class HomeActivity extends AppCompatActivity {
 
                 stunum = (TextView)findViewById(R.id.stunum);
                 stunum.setText((CharSequence) dataSnapshot.child("stuNum").getValue());
+
+                picture = (ImageView)findViewById(R.id.picture);
+                Thread mThread = new Thread()
+                {
+                    public void run()
+                    {
+                        try
+                        {
+                            URL url = new URL((String) dataSnapshot.child("imagepath").getValue());
+                            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                            conn.connect();
+
+                            InputStream is = conn.getInputStream();
+                            bitmap = BitmapFactory.decodeStream(is);
+
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                mThread.start();
+
+                try
+                {
+                    mThread.join();
+                    picture.setImageBitmap(bitmap);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
             }
 
