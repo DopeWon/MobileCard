@@ -1,8 +1,10 @@
-package com.example.jteam.mobilecard;
+package com.example.jteam.mobilecard.library;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.jteam.mobilecard.R;
 
 public class BookActivity extends AppCompatActivity {
 
