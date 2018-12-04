@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name=".main.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,15 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"
+        <activity android:name=".main.HomeActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".BookActivity"
+        <activity android:name=".library.BookActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".DvdActivity"
+        <activity android:name=".dvd.DvdActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".CalendarActivity"
+        <activity android:name=".domitory.CalendarActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".InoutActivity"
+        <activity android:name=".domitory.InoutActivity"
             android:screenOrientation="portrait">
         </activity>
     </application>
