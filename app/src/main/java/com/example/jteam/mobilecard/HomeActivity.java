@@ -112,6 +112,7 @@ public class HomeActivity extends AppCompatActivity {
         ViewGroup book_click = (ViewGroup) findViewById(R.id.book_click);
         ViewGroup dvd_click = (ViewGroup) findViewById(R.id.dvd_click);
         ViewGroup dorm_click = (ViewGroup) findViewById(R.id.dorm_click);
+        ViewGroup food_click = (ViewGroup) findViewById(R.id.food_click);
 
 
         book_click.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +140,15 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+        food_click.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(getApplicationContext(), ResCalendarActivity.class);
                 startActivity(intent);
             }
         });

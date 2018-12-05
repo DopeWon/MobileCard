@@ -29,8 +29,13 @@
         <activity android:name=".CalendarActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".InoutActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ResCalendarActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RestaurantActivity"
             android:screenOrientation="portrait">
         </activity>
+
     </application>
 
 </manifest>

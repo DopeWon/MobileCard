@@ -11,13 +11,11 @@ import android.widget.Toast;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class CalendarActivity extends AppCompatActivity {
+public class ResCalendarActivity extends AppCompatActivity {
 
     CompactCalendarView compactCalendar;
     private SimpleDateFormat dateFormatMonth = new SimpleDateFormat("yyyy년 MM월", Locale.getDefault());
@@ -25,7 +23,7 @@ public class CalendarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+        setContentView(R.layout.activity_eating_calendar);
 
 
 
@@ -33,7 +31,7 @@ public class CalendarActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setTitle("2018년 12월");
 
-        compactCalendar = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
+        compactCalendar = (CompactCalendarView) findViewById(R.id.eatingcalendarview);
         compactCalendar.setUseThreeLetterAbbreviation(true);
 
         //이벤트 추가
@@ -47,9 +45,9 @@ public class CalendarActivity extends AppCompatActivity {
             public void onDayClick(Date dateClicked) {
                 Context context = getApplicationContext();
                 //
-                if (dateClicked.toString().compareTo("Fri Nov 23 00:00:00 GMT 2018") == 0) {
+                if (dateClicked.toString().compareTo("Fri Nov 23 00:00:00 GMT+00:00 2018") == 0) {
                     Toast.makeText(context, "Teachers' Professional Day", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), InoutActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), RestaurantActivity.class);
                     startActivity(intent);
                 }
                 //이벤트 클릭 안했을 때
